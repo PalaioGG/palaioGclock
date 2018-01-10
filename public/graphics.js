@@ -60,9 +60,9 @@ function draw(){
 
   date();
 
-  secondsIndex();
-  minutesIndex();
   hourIndex();
+  minutesIndex();
+  secondsIndex();
 
   tm(1);
 }
