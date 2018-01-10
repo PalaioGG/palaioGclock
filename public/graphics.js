@@ -21,7 +21,7 @@ function setup() {
   // noLoop();
   angleMode(RADIANS);
 
-  if(windowWidth>700) {
+  if(windowWidth>800) {
     a = sketchY-100;
   }
   else {
@@ -155,12 +155,13 @@ function date() {
   }
 
   textSize(14)
-  text(day() + ' ' + mon + ', ' + year(), a/2-240, 7)
+  text(day() + ' ' + mon + ', ' + year(), a/2-a/3.5, 5)
 }
 
 function tm(size) {
   push()
     stroke('#202020')
+    strokeWeight(2)
     translate(sketchX/2-45, sketchY/2-45);
     ellipse(0, 0, size)
   pop()
