@@ -21,7 +21,8 @@ function setup() {
   // noLoop();
   angleMode(RADIANS);
 
-  if(windowWidth>800) {
+  if(displayWidth>800) {
+    console.log(displayWidth)
     a = sketchY-100;
   }
   else {
