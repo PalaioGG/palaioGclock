@@ -1,8 +1,6 @@
-var sketchX;
-var sketchY;
+var cx, cy;
 var a;
 var timeNoWidth;
-var rot;
 var sec, min, ho, day, month, year;
 var secend, minend, hend;
 var mendx, mendy;
@@ -12,10 +10,10 @@ function preload() {
 }
 
 function setup() {
-	sketchX = windowWidth-20;
-	sketchY = windowHeight-20;
+	cx = windowWidth;
+	cy = windowHeight;
 
-	canvas = createCanvas(sketchX, sketchY);
+	canvas = createCanvas(cx, cy);
 
 	frameRate(30);
   // noLoop();
@@ -23,10 +21,10 @@ function setup() {
 
   if(displayWidth>800) {
     console.log(displayWidth)
-    a = sketchY-100;
+    a = cy-100;
   }
   else {
-    a = sketchX-20;
+    a = cx-20;
   }
   timeNoWidth = 50;
 
@@ -38,7 +36,7 @@ function draw(){
 	background(0);
   stroke(255);
   noFill();
-  translate(sketchX/2, sketchY/2);
+  translate(cx/2, cy/2);
 
   clockCase();
   scene()
@@ -83,7 +81,7 @@ function scene() {
   push()
     for(i=0; i<12; i++) {
       rotate(rot + TWO_PI/12)
-      line(sketchX/2, 0, 0, sketchX/2)
+      line(cx/2, 0, 0, cx/2)
     }
   pop()
 }
@@ -112,7 +110,6 @@ function secondsNumbers() {
 
 function secondsIndex() {
   push()
-    // rotate(TWO_PI/secend)
     line(0, 0, cos(secend) * a * 0.36, sin(secend) * a * 0.36)
     ellipse(cos(secend) * a * 0.26, sin(secend) * a * 0.26, 10)
     ellipse(cos(secend) * a * 0.36, sin(secend) * a * 0.36, 10)
@@ -126,13 +123,6 @@ function minutesIndex() {
     push()
       ellipse(mendx, mendy, 30)
     pop()
-
-
-    // line(80, 80, 100, 90)
-    // line(80, 80, 90, 100)
-    // line(100, 90, 150, 150)
-    // line(90, 100, 150, 150)
-
   pop()
 }
 
@@ -153,6 +143,39 @@ function date() {
   case 1:
     mon = 'Jan'
     break;
+	case 2:
+    mon = 'Feb'
+    break;
+	case 3:
+		mon = 'Mar'
+		break;
+	case 4:
+    mon = 'Apr'
+    break;
+	case 5:
+    mon = 'May'
+    break;
+	case 6:
+    mon = 'Jun'
+    break;
+	case 7:
+    mon = 'Jul'
+    break;
+	case 8:
+    mon = 'Aug'
+    break;
+	case 9:
+    mon = 'Sep'
+    break;
+	case 10:
+    mon = 'Oct'
+    break;
+	case 11:
+    mon = 'Nov'
+    break;
+	case 12:
+    mon = 'Dec'
+    break;
   }
 
   textSize(14)
@@ -163,7 +186,7 @@ function tm(size) {
   push()
     stroke('#202020')
     strokeWeight(2)
-    translate(sketchX/2-45, sketchY/2-45);
+    translate(cx/2-45, cy/2-45);
     ellipse(0, 0, size)
   pop()
   if(size<45) {
